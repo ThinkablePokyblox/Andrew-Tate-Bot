@@ -3,8 +3,15 @@ import interactions
 import requests
 from flask import Flask
 from threading import Thread
+import json
 # Setup
-bot = interactions.Client(token="MTA1NTg0NTYzMjU3NDc3MTMyMA.G8X4sn.EoMfe6RYYa3xJdCNkaQMvx_thMux8sbanh6ikI")
+token = ""
+file = open("Token.json")
+fileJson = json.load(file)
+token = fileJson["TOKEN"]
+print(token)
+file.close()
+bot = interactions.Client(token=token)
 # Server
 app = Flask(__name__)
 @app.route('/')
